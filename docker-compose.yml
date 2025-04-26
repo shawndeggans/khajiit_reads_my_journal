@@ -31,9 +31,11 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_HOST=database
       - POSTGRES_PORT=5432
-      - KHOJ_DJANGO_SECRET_KEY=your_secret_key
-      - KHOJ_ADMIN_EMAIL=admin@example.com
-      - KHOJ_ADMIN_PASSWORD=password
+      - KHOJ_DJANGO_SECRET_KEY=${KHOJ_DJANGO_SECRET_KEY}
+      - KHOJ_DEBUG=False
+      - KHOJ_ADMIN_EMAIL=${KHOJ_ADMIN_EMAIL}
+      - KHOJ_ADMIN_PASSWORD=${KHOJ_ADMIN_PASSWORD}
+      # This points to your local Ollama instance running on the host machine
       - OPENAI_BASE_URL=http://host.docker.internal:11434/v1/
     command: --host="0.0.0.0" --port=42110 -vv --anonymous-mode --non-interactive
 

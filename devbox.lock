@@ -1,6 +1,54 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "docker-compose@latest": {
+      "last_modified": "2025-04-11T04:58:38Z",
+      "resolved": "github:NixOS/nixpkgs/642c54c23609fefb5708b0e2be261446c59138f6#docker-compose",
+      "source": "devbox-search",
+      "version": "2.35.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3m10bvc3zww5c8qz5ghndrwp6d3v2khg-docker-compose-2.35.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/3m10bvc3zww5c8qz5ghndrwp6d3v2khg-docker-compose-2.35.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/c32qlck312fh8xpljiwpn9mngnq1cdkj-docker-compose-2.35.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/c32qlck312fh8xpljiwpn9mngnq1cdkj-docker-compose-2.35.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/gfd0r66g2m81igcnclwsdw55kvwb4xgx-docker-compose-2.35.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/gfd0r66g2m81igcnclwsdw55kvwb4xgx-docker-compose-2.35.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/klldwv59yrb3f731s9nwkn6z70k0x0lz-docker-compose-2.35.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/klldwv59yrb3f731s9nwkn6z70k0x0lz-docker-compose-2.35.0"
+        }
+      }
+    },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
       "resolved": "github:NixOS/nixpkgs/507b63021ada5fee621b6ca371c4fca9ca46f52c?lastModified=1745377448&narHash=sha256-jhZDfXVKdD7TSEGgzFJQvEEZ2K65UMiqW5YJ2aIqxMA%3D"
     },
