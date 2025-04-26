@@ -1,0 +1,43 @@
+services:
+  database:
+    image: docker.io/pgvector/pgvector:pg15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - khoj_db:/var/lib/postgresql/data/
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  server:
+    depends_on:
+      database:
+        condition: service_healthy
+    image: ghcr.io/khoj-ai/khoj:latest
+    ports:
+      - "42110:42110"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    working_dir: /app
+    volumes:
+      - khoj_config:/root/.khoj/
+      - khoj_models:/root/.cache/torch/sentence_transformers
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=database
+      - POSTGRES_PORT=5432
+      - KHOJ_DJANGO_SECRET_KEY=your_secret_key
+      - KHOJ_ADMIN_EMAIL=admin@example.com
+      - KHOJ_ADMIN_PASSWORD=password
+      - OPENAI_BASE_URL=http://host.docker.internal:11434/v1/
+    command: --host="0.0.0.0" --port=42110 -vv --anonymous-mode --non-interactive
+
+volumes:
+  khoj_config:
+  khoj_db:
+  khoj_models:
